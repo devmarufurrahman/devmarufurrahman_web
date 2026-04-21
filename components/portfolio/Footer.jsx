@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { portfolioData } from '@/lib/portfolio-data';
+import { motion } from "framer-motion";
+import { portfolioData } from "@/lib/portfolio-data";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,7 +14,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-700 py-12">
+    <footer
+      id="footer"
+      className="bg-slate-900 border-t border-slate-700 py-12"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -24,13 +27,14 @@ export default function Footer() {
           className="text-center"
         >
           <h3 className="text-2xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
               Let&apos;s Work Together
             </span>
           </h3>
 
           <p className="text-gray-400 mb-6 max-w-md mx-auto">
-            Have a project in mind? Feel free to reach out and let&apos;s create something amazing together.
+            Have a project in mind? Feel free to reach out and let&apos;s create
+            something amazing together.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -38,7 +42,7 @@ export default function Footer() {
               href={`mailto:${portfolioData.email}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
+              className="px-6 py-3 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
             >
               Send Me an Email
             </motion.a>
@@ -72,8 +76,8 @@ export default function Footer() {
               © {currentYear} {portfolioData.name}. All rights reserved.
             </p>
             <p className="text-gray-600 text-xs mt-2">
-              Designed & Built with{' '}
-              <span className="text-cyan-400">✨</span> using React, Next.js & Tailwind CSS
+              Designed & Built with <span className="text-cyan-400">✨</span>{" "}
+              using React, Next.js & Tailwind CSS
             </p>
           </div>
         </motion.div>

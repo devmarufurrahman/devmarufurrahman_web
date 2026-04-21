@@ -1,14 +1,15 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { portfolioData } from "@/lib/portfolio-data";
 
 export default function Navbar() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const navItems = ['Home', 'Skills', 'Experience', 'Projects', 'Education'];
+  const navItems = ["Home", "Skills", "Experience", "Projects", "Education"];
 
   return (
     <motion.nav
@@ -24,8 +25,23 @@ export default function Navbar() {
           transition={{ delay: 0.2 }}
           className="flex items-center gap-2"
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center font-bold text-white text-lg">M</div>
-          <span className="text-xl font-bold text-white">dev<span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">marufur</span><span className="text-purple-400">.</span>dev</span>
+          <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-purple-500/50 shadow-lg shadow-purple-500/20 shrink-0">
+            <img
+              src={portfolioData.profileImage}
+              alt="Maruf"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.target.src = "https://via.placeholder.com/40";
+              }}
+            />
+          </div>
+          <span className="text-xl font-bold text-white ml-3">
+            dev
+            <span className="bg-linear-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+              marufur
+            </span>
+            rahman
+          </span>
         </motion.div>
 
         <div className="hidden md:flex gap-8">
