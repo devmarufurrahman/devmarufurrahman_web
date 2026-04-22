@@ -1,9 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import { portfolioData } from "@/lib/portfolio-data";
 import { Mail, Link as LinkIcon, Code2, Smartphone } from "lucide-react";
 
-// --- Custom Professional Icons (Replaces Emojis) ---
+// --- Custom Professional Icons ---
 const GithubIcon = ({ size = 20 }) => (
   <svg
     viewBox="0 0 24 24"
@@ -68,7 +67,9 @@ const getSocialIcon = (iconType) => {
   }
 };
 
-export default function Hero() {
+export default function Hero({ data }) {
+  if (!data) return null; // Safety check if data is missing
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -124,26 +125,24 @@ export default function Hero() {
         className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full"
       >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24 mb-12">
-          {/* --- Refined Profile Image Section --- */}
+          {/* --- Profile Image --- */}
           <motion.div
             variants={itemVariants}
             className="shrink-0 relative flex justify-center lg:justify-end w-full lg:w-auto"
           >
             <div className="relative group w-64 h-64 sm:w-80 sm:h-80 md:w-87.5 md:h-87.5 flex items-center justify-center mt-8 lg:mt-0">
-              {/* Animated Glow Ring */}
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                 className="absolute -inset-3.75 rounded-[60px] md:rounded-[80px] bg-linear-to-tr from-purple-600 via-pink-500 to-blue-500 opacity-40 blur-2xl group-hover:opacity-70 group-hover:blur-3xl transition-all duration-700"
               />
 
-              {/* Image Container */}
               <div className="relative w-full h-full aspect-square rounded-[40px] md:rounded-[60px] p-1 bg-linear-to-b from-purple-500/50 to-blue-500/50 shadow-2xl shadow-purple-900/40 z-10 overflow-hidden group hover:scale-[1.02] transition-transform duration-500">
                 <div className="w-full h-full rounded-[36px] md:rounded-[56px] overflow-hidden bg-[#0a0f1e]">
-                  {portfolioData.profileImage ? (
+                  {data.profileImage ? (
                     <img
-                      src={portfolioData.profileImage}
-                      alt={portfolioData.name}
+                      src={data.profileImage}
+                      alt={data.name}
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                     />
                   ) : (
@@ -180,26 +179,26 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* --- Refined Text Content --- */}
+          {/* --- Text Content --- */}
           <div className="flex-1 text-center lg:text-left w-full">
             <motion.div variants={itemVariants}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
                 Hey, I&apos;m <br className="hidden lg:block" />
                 <span className="bg-linear-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent">
-                  {portfolioData.name}
+                  {data.name}
                 </span>
               </h1>
             </motion.div>
 
             <motion.div variants={itemVariants}>
               <h2 className="text-xl sm:text-2xl lg:text-3xl text-purple-300 font-medium mb-6">
-                {portfolioData.title}
+                {data.title}
               </h2>
             </motion.div>
 
             <motion.div variants={itemVariants}>
               <p className="text-base sm:text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                {portfolioData.bio}
+                {data.bio}
               </p>
             </motion.div>
 
@@ -211,6 +210,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300"
+                onClick={() => scrollToSection("projects")}
               >
                 View My Work
               </motion.button>
@@ -228,9 +228,9 @@ export default function Hero() {
               variants={itemVariants}
               className="flex justify-center lg:justify-start gap-4"
             >
-              {portfolioData.social.map((social, index) => (
+              {data.social.map((social, index) => (
                 <motion.a
-                  key={social.name || index}
+                  key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"

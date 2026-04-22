@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { portfolioData } from '@/lib/portfolio-data';
+"use client";
+import { motion } from "framer-motion";
 
-export default function Education() {
+export default function Education({ education }) {
   const titleVariants = {
     hidden: { opacity: 0, y: -20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -16,57 +16,60 @@ export default function Education() {
     },
   };
 
+  if (!education) return null;
+
   return (
-    <section id="education" className="py-20 bg-gradient-to-b from-slate-800 to-slate-900">
+    <section
+      id="education"
+      className="py-20 bg-linear-to-b from-[#020617] to-slate-950"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={titleVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
               Education
             </span>
           </h2>
-          <div className="h-1 w-20 mx-auto bg-gradient-to-r from-purple-400 to-pink-400 rounded-full" />
+          <div className="h-1 w-20 mx-auto bg-linear-to-r from-purple-400 to-pink-400 rounded-full" />
         </motion.div>
 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto"
         >
-          {portfolioData.education.map((edu, index) => (
+          {education.map((edu, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5 }}
-              className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-6 border border-slate-600 hover:border-purple-400 transition-all duration-300"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-purple-400/50 transition-all duration-300 group"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-5">
                 <motion.div
-                  whileHover={{ scale: 1.2 }}
-                  className="w-12 h-12 rounded-lg bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center flex-shrink-0"
+                  whileHover={{ scale: 1.1, rotate: 10 }}
+                  className="w-14 h-14 rounded-xl bg-linear-to-br from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/20"
                 >
-                  <span className="text-white text-xl font-bold">🎓</span>
+                  <span className="text-white text-2xl font-bold">🎓</span>
                 </motion.div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-purple-400 mb-1">
+                  <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors mb-1">
                     {edu.degree}
                   </h3>
-                  <p className="text-gray-400 font-semibold mb-1">
+                  <p className="text-slate-300 font-medium mb-1">
                     {edu.school}
                   </p>
-                  <p className="text-gray-500 text-sm mb-2">
-                    {edu.field}
-                  </p>
-                  <p className="text-purple-300 font-medium text-sm">
+                  <p className="text-slate-500 text-sm mb-3">{edu.field}</p>
+                  <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold">
                     {edu.year}
-                  </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
