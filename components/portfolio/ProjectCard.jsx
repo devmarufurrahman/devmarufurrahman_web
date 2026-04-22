@@ -19,7 +19,7 @@ export default function ProjectCard({ project, index }) {
       whileInView="visible"
       viewport={{ once: true }}
       whileHover={{ y: -10 }}
-      className="group bg-white/5 backdrop-blur-md rounded-[2rem] overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500 shadow-2xl"
+      className="group bg-white/5 backdrop-blur-md rounded-4xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500 shadow-2xl"
     >
       {/* --- Project Image / Preview --- */}
       <div className="h-56 relative overflow-hidden">
@@ -30,7 +30,7 @@ export default function ProjectCard({ project, index }) {
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-purple-900/40 via-slate-900 to-blue-900/40 flex items-center justify-center relative">
+          <div className="w-full h-full bg-linear-to-br from-purple-900/40 via-slate-900 to-blue-900/40 flex items-center justify-center relative">
             <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
             <motion.div
               animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
@@ -44,7 +44,7 @@ export default function ProjectCard({ project, index }) {
         )}
 
         {/* Overlay on Hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+        <div className="absolute inset-0 bg-linear-to-t from-[#020617] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
           <div className="flex gap-3 w-full">
             <a
               href={project.demo}
@@ -105,7 +105,7 @@ export default function ProjectCard({ project, index }) {
       </div>
 
       {/* Bottom Accent Line */}
-      <div className="h-1 w-full bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="h-1 w-full bg-linear-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </motion.div>
   );
 }

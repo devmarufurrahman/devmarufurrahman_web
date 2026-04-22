@@ -24,7 +24,7 @@ export default function ExperienceItem({
       className="relative pl-10 pb-12 last:pb-0 group"
     >
       {/* Timeline Vertical Line Connector */}
-      <div className="absolute left-0 top-2 bottom-0 w-px bg-linear-to-b from-purple-500 via-slate-700 to-transparent group-last:bg-gradient-to-b group-last:from-purple-500 group-last:to-transparent" />
+      <div className="absolute left-0 top-2 bottom-0 w-px bg-linear-to-b from-purple-500 via-slate-700 to-transparent group-last:bg-linear-to-b group-last:from-purple-500 group-last:to-transparent" />
 
       {/* Timeline Dot with Icon Look */}
       <motion.div
@@ -40,7 +40,7 @@ export default function ExperienceItem({
       {/* Experience Content Card */}
       <motion.div
         whileHover={{ x: 10, y: -5 }}
-        className="bg-white/5 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.08] transition-all duration-500 shadow-xl"
+        className="bg-white/5 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-white/10 hover:border-purple-500/50 hover:bg-white/8 transition-all duration-500 shadow-xl"
       >
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
           <div>

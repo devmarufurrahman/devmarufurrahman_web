@@ -55,7 +55,7 @@ export default function Education({ education }) {
               <div className="flex items-start gap-5">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 10 }}
-                  className="w-14 h-14 rounded-xl bg-linear-to-br from-purple-600 to-blue-600 flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/20"
+                  className="w-14 h-14 rounded-xl bg-linear-to-br from-purple-600 to-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-purple-500/20"
                 >
                   <span className="text-white text-2xl font-bold">🎓</span>
                 </motion.div>

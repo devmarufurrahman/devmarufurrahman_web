@@ -28,14 +28,14 @@ export default function SkillCard({ category, items, index }) {
       whileInView="visible"
       viewport={{ once: true }}
       whileHover={{ y: -8, scale: 1.02 }}
-      className="group bg-white/5 backdrop-blur-md rounded-[2.5rem] p-8 border border-white/10 hover:border-purple-500/50 hover:bg-white/[0.08] transition-all duration-500 shadow-2xl relative overflow-hidden"
+      className="group bg-white/5 backdrop-blur-md rounded-[2.5rem] p-8 border border-white/10 hover:border-purple-500/50 hover:bg-white/8 transition-all duration-500 shadow-2xl relative overflow-hidden"
     >
       {/* Decorative Glow inside card */}
       <div className="absolute -top-10 -right-10 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl group-hover:bg-purple-600/20 transition-all duration-500" />
 
       {/* Header Section */}
       <div className="flex items-center gap-4 mb-8">
-        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:rotate-12 transition-transform duration-500">
+        <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:rotate-12 transition-transform duration-500">
           <Cpu size={24} className="text-white" />
         </div>
         <h3 className="text-2xl font-black text-white tracking-tight group-hover:text-purple-400 transition-colors">
@@ -55,7 +55,7 @@ export default function SkillCard({ category, items, index }) {
             viewport={{ once: true }}
             className="flex items-center gap-3 group/item"
           >
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <CheckCircle2
                 size={18}
                 className="text-purple-500 group-hover/item:text-pink-500 transition-colors duration-300"
@@ -69,7 +69,7 @@ export default function SkillCard({ category, items, index }) {
       </div>
 
       {/* Bottom Accent */}
-      <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-purple-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute bottom-0 left-0 w-full h-1.5 bg-linear-to-r from-transparent via-purple-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </motion.div>
   );
 }

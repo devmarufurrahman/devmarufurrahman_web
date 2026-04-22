@@ -74,7 +74,6 @@ const getSocialIcon = (iconType) => {
   }
 };
 
-// ✅ এখানে { data } রিসিভ করা হচ্ছে
 export default function Footer({ data }) {
   const currentYear = new Date().getFullYear();
 
@@ -90,7 +89,7 @@ export default function Footer({ data }) {
       className="bg-[#020617] border-t border-white/5 py-16 relative overflow-hidden"
     >
       {/* Background Subtle Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-purple-500/50 to-transparent"></div>
 
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
         {/* Scroll to Top Button */}
@@ -109,14 +108,14 @@ export default function Footer({ data }) {
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
               Let&apos;s Work Together
             </span>
           </h3>
 
           <p className="text-slate-400 mb-10 max-w-lg mx-auto leading-relaxed italic font-light">
-            আপনার পরবর্তী বড় প্রজেক্ট বা রিমোট টিমে একজন এক্সপার্ট মোবাইল
-            ডেভেলপার খুঁজছেন? আমি সবসময় নতুন চ্যালেঞ্জ নিতে প্রস্তুত।
+            Looking for an expert mobile developer for your next big project or
+            remote team? I'm always up for a new challenge.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center mb-12">
@@ -124,7 +123,7 @@ export default function Footer({ data }) {
               href={`mailto:${data.email}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-black flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20"
+              className="px-10 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-black flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20"
             >
               <Mail size={18} /> Send Me an Email
             </motion.a>

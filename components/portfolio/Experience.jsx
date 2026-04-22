@@ -37,7 +37,7 @@ export default function Experience({ experience }) {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-3xl mx-auto relative"
         >
-          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-px bg-gradient-to-b from-purple-500/50 via-slate-800 to-transparent hidden sm:block" />
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-px bg-linear-to-b from-purple-500/50 via-slate-800 to-transparent hidden sm:block" />
 
           {experience.map((exp, index) => (
             <ExperienceItem
