@@ -20,7 +20,7 @@ export default function Experience({ experience }) {
           variants={titleVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="text-center mb-20"
         >
           <h2 className="text-4xl sm:text-5xl font-black mb-4">
@@ -34,7 +34,7 @@ export default function Experience({ experience }) {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="max-w-3xl mx-auto relative"
         >
           <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-px bg-linear-to-b from-purple-500/50 via-slate-800 to-transparent hidden sm:block" />

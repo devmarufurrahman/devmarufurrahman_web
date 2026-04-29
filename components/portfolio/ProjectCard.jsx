@@ -8,7 +8,7 @@ export default function ProjectCard({ project, index }) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { delay: index * 0.1, duration: 0.6, ease: "easeOut" },
+      transition: { delay: index * 0.1, duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -17,9 +17,10 @@ export default function ProjectCard({ project, index }) {
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
-      whileHover={{ y: -10 }}
-      className="group bg-white/5 backdrop-blur-md rounded-4xl overflow-hidden border border-white/10 hover:border-purple-500/50 transition-all duration-500 shadow-2xl"
+      viewport={{ once: true, margin: "-50px" }} // ট্রিগার মার্জিন কমানো হয়েছে
+      // ✅ whileHover={{ y: -10 }} বাদ দিয়ে Tailwind-এর hover:-translate-y-2 ব্যবহার করা হয়েছে
+      // ✅ মোবাইলে সলিড ব্যাকগ্রাউন্ড (bg-slate-900/60) এবং ডেস্কটপে গ্লাস ইফেক্ট (md:backdrop-blur-md)
+      className="group bg-slate-900/60 md:bg-white/5 md:backdrop-blur-md rounded-4xl overflow-hidden border border-white/10 hover:border-purple-500/50 hover:-translate-y-2 transition-all duration-500 shadow-2xl"
     >
       {/* --- Project Image / Preview --- */}
       <div className="h-56 relative overflow-hidden">
@@ -32,14 +33,11 @@ export default function ProjectCard({ project, index }) {
         ) : (
           <div className="w-full h-full bg-linear-to-br from-purple-900/40 via-slate-900 to-blue-900/40 flex items-center justify-center relative">
             <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-            <motion.div
-              animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="text-7xl font-black text-white/10 select-none"
-            >
+            {/* ✅ Framer motion-এর ইনফিনিট লুপ বাদ দিয়ে CSS হোভার ট্রানজিশন দেওয়া হয়েছে */}
+            <div className="text-7xl font-black text-white/10 select-none group-hover:scale-110 group-hover:rotate-6 transition-transform duration-700">
               {project.title.charAt(0)}
-            </motion.div>
-            <Code2 size={40} className="absolute text-purple-500/40" />
+            </div>
+            <Code2 size={40} className="absolute text-purple-500/40 group-hover:text-purple-500/60 transition-colors" />
           </div>
         )}
 
@@ -49,7 +47,7 @@ export default function ProjectCard({ project, index }) {
             <a
               href={project.demo}
               target="_blank"
-              className="flex-1 bg-white text-black py-2 rounded-xl text-xs font-black text-center hover:bg-purple-500 hover:text-white transition-all"
+              className="flex-1 bg-white text-black py-2 rounded-xl text-xs font-black text-center hover:bg-purple-500 hover:text-white transition-all active:scale-95"
             >
               LIVE PREVIEW
             </a>
@@ -64,22 +62,23 @@ export default function ProjectCard({ project, index }) {
             {project.title}
           </h3>
           <div className="flex gap-3 text-slate-400">
-            <motion.a
-              whileHover={{ scale: 1.2, color: "#a855f7" }}
+            {/* ✅ Framer Motion হোভার বাদ দিয়ে Tailwind CSS হোভার দেওয়া হয়েছে */}
+            <a
               href={project.link}
               target="_blank"
               title="Source Code"
+              className="hover:scale-125 hover:text-purple-500 transition-all duration-300"
             >
               <Github size={20} />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.2, color: "#a855f7" }}
+            </a>
+            <a
               href={project.demo}
               target="_blank"
               title="Live Demo"
+              className="hover:scale-125 hover:text-purple-500 transition-all duration-300"
             >
               <ExternalLink size={20} />
-            </motion.a>
+            </a>
           </div>
         </div>
 

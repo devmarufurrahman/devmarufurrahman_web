@@ -30,8 +30,7 @@ export default function Projects({ projects }) {
       id="projects"
       className="py-24 bg-[#020617] relative overflow-hidden"
     >
-      {/* Background Glow Detail */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none hidden md:block">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]" />
       </div>
@@ -41,7 +40,7 @@ export default function Projects({ projects }) {
           variants={titleVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
@@ -60,7 +59,7 @@ export default function Projects({ projects }) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12"
         >
           {projects.map((project, index) => (

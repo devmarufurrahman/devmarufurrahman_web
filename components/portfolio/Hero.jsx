@@ -68,7 +68,7 @@ const getSocialIcon = (iconType) => {
 };
 
 export default function Hero({ data }) {
-  if (!data) return null; // Safety check if data is missing
+  if (!data) return null;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -99,8 +99,7 @@ export default function Hero({ data }) {
       id="home"
       className="min-h-screen bg-linear-to-b from-[#020617] via-slate-900 to-[#020617] flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none hidden md:block">
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
@@ -154,7 +153,7 @@ export default function Hero({ data }) {
                 </div>
               </div>
 
-              {/* Floating Badge */}
+              {/* Floating Badge - ✅ Glassmorphism optimized */}
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{
@@ -162,7 +161,7 @@ export default function Hero({ data }) {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-8 bg-slate-950/90 border border-white/10 p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3 backdrop-blur-md"
+                className="absolute -bottom-6 -right-4 md:-bottom-8 md:-right-8 bg-slate-950/95 md:bg-slate-950/80 md:backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-xl z-20 flex items-center gap-3"
               >
                 <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30">
                   <Code2 className="text-purple-400" size={20} />
@@ -206,40 +205,37 @@ export default function Hero({ data }) {
               variants={itemVariants}
               className="flex flex-wrap gap-5 justify-center lg:justify-start mb-10"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-300"
+              {/* ✅ Buttons optimized with Tailwind hover/active */}
+              <button
                 onClick={() => scrollToSection("projects")}
+                className="px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 View My Work
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-white/10 text-white rounded-xl font-bold bg-white/5 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm transition-all duration-300"
+              </button>
+              <button
                 onClick={() => scrollToSection("footer")}
+                className="px-8 py-4 border-2 border-white/10 text-white rounded-xl font-bold bg-white/5 hover:bg-white/10 hover:border-white/20 hover:scale-105 active:scale-95 transition-all duration-300"
               >
                 Contact Me
-              </motion.button>
+              </button>
             </motion.div>
 
             <motion.div
               variants={itemVariants}
               className="flex justify-center lg:justify-start gap-4"
             >
+              {/* ✅ Social Icons optimized with Tailwind hover */}
               {data.social.map((social, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  className="w-14 h-14 rounded-2xl border border-white/10 bg-white/5 text-slate-300 flex items-center justify-center hover:bg-purple-500/20 hover:text-purple-400 hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm"
+                  className="w-14 h-14 rounded-2xl border border-white/10 bg-slate-900/60 md:bg-white/5 md:backdrop-blur-sm text-slate-300 flex items-center justify-center hover:bg-purple-500/20 hover:text-purple-400 hover:border-purple-500/50 hover:scale-110 hover:-translate-y-1 transition-all duration-300"
                   title={social.name}
                 >
                   {getSocialIcon(social.icon)}
-                </motion.a>
+                </a>
               ))}
             </motion.div>
           </div>

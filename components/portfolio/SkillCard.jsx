@@ -8,7 +8,7 @@ export default function SkillCard({ category, items, index }) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { delay: index * 0.1, duration: 0.6, ease: "easeOut" },
+      transition: { delay: index * 0.1, duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -26,16 +26,14 @@ export default function SkillCard({ category, items, index }) {
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
-      whileHover={{ y: -8, scale: 1.02 }}
-      className="group bg-white/5 backdrop-blur-md rounded-[2.5rem] p-8 border border-white/10 hover:border-purple-500/50 hover:bg-white/8 transition-all duration-500 shadow-2xl relative overflow-hidden"
+      viewport={{ once: true, margin: "-50px" }}
+      className="group bg-slate-900/60 md:bg-white/5 md:backdrop-blur-md rounded-[2.5rem] p-8 border border-white/10 hover:border-purple-500/50 hover:bg-slate-800/80 md:hover:bg-white/10 hover:-translate-y-2 md:hover:scale-[1.02] transition-all duration-500 shadow-xl relative overflow-hidden"
     >
-      {/* Decorative Glow inside card */}
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl group-hover:bg-purple-600/20 transition-all duration-500" />
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl group-hover:bg-purple-600/20 transition-all duration-500 hidden md:block" />
 
       {/* Header Section */}
-      <div className="flex items-center gap-4 mb-8">
-        <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:rotate-12 transition-transform duration-500">
+      <div className="flex items-center gap-4 mb-8 relative z-10">
+        <div className="w-12 h-12 rounded-2xl bg-linear-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:rotate-12 transition-transform duration-500 shrink-0">
           <Cpu size={24} className="text-white" />
         </div>
         <h3 className="text-2xl font-black text-white tracking-tight group-hover:text-purple-400 transition-colors">
@@ -44,7 +42,7 @@ export default function SkillCard({ category, items, index }) {
       </div>
 
       {/* Skills List */}
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-4 relative z-10">
         {items.map((skill, idx) => (
           <motion.div
             key={skill}
@@ -58,7 +56,7 @@ export default function SkillCard({ category, items, index }) {
             <div className="shrink-0">
               <CheckCircle2
                 size={18}
-                className="text-purple-500 group-hover/item:text-pink-500 transition-colors duration-300"
+                className="text-purple-500 group-hover/item:text-pink-500 group-hover/item:scale-110 transition-all duration-300"
               />
             </div>
             <span className="text-slate-300 font-bold text-sm md:text-base tracking-wide group-hover/item:text-white transition-colors">

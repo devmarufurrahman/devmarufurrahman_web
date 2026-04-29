@@ -20,7 +20,7 @@ export default function Languages({ languages }) {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
@@ -29,15 +29,14 @@ export default function Languages({ languages }) {
       id="languages"
       className="py-24 bg-[#020617] relative overflow-hidden"
     >
-      {/* Background Decorative Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-purple-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-purple-600/5 rounded-full blur-[120px] pointer-events-none hidden md:block" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="space-y-16"
         >
           {/* Section Title */}
@@ -54,8 +53,7 @@ export default function Languages({ languages }) {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="p-8 rounded-4xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-purple-500/50 hover:bg-white/8 transition-all duration-500 group shadow-xl"
+                className="p-8 rounded-4xl bg-slate-900/60 md:bg-white/5 md:backdrop-blur-md border border-white/10 hover:border-purple-500/50 hover:bg-slate-800/80 md:hover:bg-white/8 hover:-translate-y-1 md:hover:scale-[1.02] transition-all duration-500 group shadow-xl"
               >
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-4">

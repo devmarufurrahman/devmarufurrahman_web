@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
-// কম্পোনেন্ট ইমপোর্ট
 import Navbar from "@/components/portfolio/Navbar";
 import Hero from "@/components/portfolio/Hero";
 import Skills from "@/components/portfolio/Skills";

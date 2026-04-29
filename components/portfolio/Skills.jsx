@@ -1,9 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import SkillCard from "./SkillCard";
-// ❌ Static import টি ডিলিট করা হয়েছে
 
-// ✅ এখানে { skills } প্রপস রিসিভ করা হচ্ছে মেইন page.jsx থেকে
 export default function Skills({ skills }) {
   if (!skills) return null; // Safety check if data is missing
 
@@ -32,16 +30,15 @@ export default function Skills({ skills }) {
       id="skills"
       className="py-24 bg-[#020617] relative overflow-hidden"
     >
-      {/* Background Decorative Glows */}
-      <div className="absolute top-0 right-0 w-125 h-125 bg-purple-600/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-125 h-125 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-125 h-125 bg-purple-600/5 rounded-full blur-[120px] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-0 left-0 w-125 h-125 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
           variants={titleVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
@@ -60,7 +57,7 @@ export default function Skills({ skills }) {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
         >
           {skills.map((skillGroup, index) => (

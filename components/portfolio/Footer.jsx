@@ -94,19 +94,17 @@ export default function Footer({ data }) {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-purple-500/50 to-transparent"></div>
 
       <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
-        {/* Scroll to Top Button */}
-        <motion.button
+        <button
           onClick={scrollToTop}
-          whileHover={{ y: -5 }}
-          className="mb-12 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto text-slate-400 hover:text-purple-400 hover:border-purple-400/50 transition-all shadow-xl"
+          className="mb-12 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto text-slate-400 hover:text-purple-400 hover:border-purple-400/50 hover:-translate-y-1 transition-all duration-300 shadow-xl"
         >
           <ArrowUp size={20} />
-        </motion.button>
+        </button>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">
@@ -121,42 +119,34 @@ export default function Footer({ data }) {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center mb-12">
-            <motion.a
+            {/* ✅ Contact Buttons (Optimized to HTML anchor tags with Tailwind hover/active scale) */}
+            <a
               href={`mailto:${data.email}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-black flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20"
+              className="px-10 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-black flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 hover:scale-105 active:scale-95 transition-transform duration-300"
             >
               <Mail size={18} /> Send Me an Email
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href={`tel:${data.phone}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 border border-white/10 bg-white/5 text-white rounded-2xl font-black flex items-center justify-center gap-2 hover:bg-white/10 transition-all"
+              className="px-10 py-4 border border-white/10 bg-white/5 text-white rounded-2xl font-black flex items-center justify-center gap-2 hover:bg-white/10 hover:scale-105 active:scale-95 transition-all duration-300"
             >
               <Phone size={18} /> Give a Call
-            </motion.a>
+            </a>
           </div>
 
           {/* Social Icons Container */}
           <div className="flex justify-center gap-5 mb-12">
             {data.social.map((social, index) => (
-              <motion.a
+              <a
                 key={index}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{
-                  scale: 1.2,
-                  y: -5,
-                  backgroundColor: "rgba(168, 85, 247, 0.1)",
-                }}
-                className="w-12 h-12 rounded-2xl border border-white/10 text-slate-300 flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+                className="w-12 h-12 rounded-2xl border border-white/10 text-slate-300 flex items-center justify-center transition-all duration-300 bg-slate-900/60 md:bg-transparent md:backdrop-blur-sm hover:scale-110 hover:-translate-y-1 hover:bg-purple-500/10 hover:border-purple-500/50 hover:text-purple-400"
                 title={social.name}
               >
                 {getSocialIcon(social.icon)}
-              </motion.a>
+              </a>
             ))}
           </div>
 
@@ -167,9 +157,6 @@ export default function Footer({ data }) {
                 {data.name}
               </span>
             </p>
-            {/* <p className="text-[10px] text-slate-700 mt-2 uppercase font-bold">
-              Crafted with Next.js 16 & Firebase
-            </p> */}
           </div>
         </motion.div>
       </div>
